@@ -1,23 +1,24 @@
 import React, { useState } from 'react'
-import { LoginAPI, GoogleSignInAPI } from '../api/AuthAPI'
+import { RegisterAPI, GoogleSignInAPI } from '../api/AuthAPI'
 import { useNavigate } from "react-router-dom";
 import GoogleButton from 'react-google-button';
 import '../Sass/LoginComponent.scss';
 import BepopLogo from "../assets/react.svg"
 import {toast} from 'react-toastify';
 
-const LoginComponent = () => {
+const RegisterComponent = () => {
     let navigate=useNavigate();
     const [credentials, setCredentials] = useState({});
 
-    const login = async () => {
+    const register = async () => {
         // passing the email and password for authentication
         try {
-            let res = await LoginAPI(credentials.email, credentials.password);
-            toast.success("Signed In successfully!");
+            let res = await RegisterAPI(credentials.email, credentials.password);
+            toast.success("Account Created!");
+            navigate("/home");
         }
         catch (err) {
-            toast.error("Wrong Credentials!!!");
+            toast.error("Cannot Create your account ");
             console.log(err);
         }
     }
@@ -25,7 +26,7 @@ const LoginComponent = () => {
     const googleSignIn = () => {
         let response = GoogleSignInAPI();
         if(!response) toast.success("Signed In successfully!");
-        console.log(response);
+        navigate("/home");
     }
 
 
@@ -33,25 +34,25 @@ const LoginComponent = () => {
         <div className='login-wrapper'>
             <img src={BepopLogo} className='bepopLogo' />
             <div className="login-wrapper-inner">
-                <h1 className="heading">Sign in</h1>
+                <h1 className="heading">Sign Up</h1>
                 <p className="sub-heading">Stay updated on your professional world</p>
                 <div className="auth-inputs">
                     <input
                         onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
                         className='common-input'
-                        placeholder='Enter your Email'
+                        placeholder='Email or Phone Number'
                     />
 
                     <input
                         onChange={(event) => setCredentials({ ...credentials, password: event.target.value })}
                         type='password'
                         className='common-input'
-                        placeholder='Enter your Password'
+                        placeholder='Password (6 or more characters)'
                     />
 
                 </div>
                 
-                <button className='login-btn' onClick={login}>Log In</button>
+                <button className='login-btn' onClick={register}>Agree & Join</button>
             </div>
             
             <hr className="hr-text" data-content="or" />
@@ -61,9 +62,9 @@ const LoginComponent = () => {
                         onClick={googleSignIn} />
                     
                     <p className="go-to-signup">
-                    New to Bepop Professionals?{" "}
-                    <span className="join-now" onClick={() => navigate("/register")}>
-                        Join now
+                    Already on Bepop Professionals?{" "}
+                    <span className="join-now" onClick={() => navigate("/")}>
+                        Sign In
                     </span>
                     </p>
                 </div>
@@ -71,4 +72,4 @@ const LoginComponent = () => {
     )
 }
 
-export default LoginComponent
+export default RegisterComponent
