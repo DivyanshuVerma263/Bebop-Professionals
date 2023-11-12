@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import {auth} from '../firebaseConfig'
-import Loader from '../components/common/Loader/Loader'
+import Loader from '../components/common/Loader'
 
 const Login = () => {
   const [loading,setLoading]=useState(true);

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Space , Spin } from 'antd'
-import './Loader.scss'
+import './index.scss'
 function Loader() {
   return (
     <div className='loader'>

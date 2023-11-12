@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import HomeComponent from '../components/HomeComponent'
-import Loader from '../components/common/Loader/Loader'
+import Loader from '../components/common/Loader'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../firebaseConfig'

@@ -1,8 +1,11 @@
 import React from 'react'
+import PostStatus from './common/PostUpdate'
 
 function HomeComponent() {
   return (
-    <div>HomeComponent</div>
+    <div>
+      <PostStatus />
+    </div>
   )
 }
 

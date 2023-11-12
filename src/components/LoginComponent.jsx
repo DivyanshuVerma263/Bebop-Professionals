@@ -22,10 +22,19 @@ const LoginComponent = () => {
         }
     }
     
-    const googleSignIn = () => {
-        let response = GoogleSignInAPI();
-        if(!response) toast.success("Signed In successfully!");
-        console.log(response);
+    // async and await used so that user is first logged in and then the toast message is displayed
+    const googleSignIn = async () => {
+        try{
+            let response = await GoogleSignInAPI();
+            toast.success("Signed In successfully!");
+            
+        }
+        catch{
+            toast.error("Wrong Credentials!!!");
+            console.log(err);
+
+        }
+        
     }
 
 
