@@ -33,7 +33,12 @@ function PostStatus() {
                     Start a Post
                 </button>
             </div>
-            <ModalComponent modalOpen={modalOpen} setModalOpen={setModalOpen} />
+            <ModalComponent 
+            modalOpen={modalOpen} 
+            setModalOpen={setModalOpen}
+            status={status}
+            setStatus={setStatus}
+            sendStatus={sendStatus} />
         </div>
     )
 }
