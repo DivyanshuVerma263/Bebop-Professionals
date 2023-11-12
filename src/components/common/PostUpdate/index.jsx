@@ -1,6 +1,11 @@
-import React, { useState } from 'react'
-import ModalComponent from '../Modal';
-import './index.scss'
+import React, { useState, useMemo } from "react";
+import { postStatus, getStatus, updatePost } from "../../../api/FirestoreAPI";
+// import { getCurrentTimeStamp } from "../../../helpers/useMoment";
+import ModalComponent from "../Modal";
+// import { uploadPostImage } from "../../../api/ImageUpload";
+// import { getUniqueID } from "../../../helpers/getUniqueId";
+import PostsCard from "../PostsCard";
+import "./index.scss";
 
 function PostStatus() {
     const [modalOpen, setModalOpen] = useState(false);
@@ -9,7 +14,33 @@ function PostStatus() {
     const [currentPost, setCurrentPost] = useState({});
     const [isEdit, setIsEdit] = useState(false);
     const [postImage, setPostImage] = useState(""); 
+    
+    
+    const sendStatus = async () => {
+        let object = {
+            status: status,
+            // timeStamp: getCurrentTimeStamp("LLL"),
+            // userEmail: currentUser.email,
+            // userName: currentUser.name,
+            // postID: getUniqueID(),
+            // userID: currentUser.id,
+            postImage: postImage,
+          };
+        //adding the object
+        await postStatus(object); 
+        
+        // close the modal
+        await setModalOpen(false); 
+        
+        //reseting to default so that we don't see the added document again for posting
+        await setStatus(""); 
+    }
 
+    useMemo(() => {
+        getStatus(setAllStatus);
+    }, []);
+    
+// console.log(allStatuses);
     return (
         <div className="post-status-main">
             <div className="user-details">
@@ -34,11 +65,21 @@ function PostStatus() {
                 </button>
             </div>
             <ModalComponent 
-            modalOpen={modalOpen} 
-            setModalOpen={setModalOpen}
-            status={status}
-            setStatus={setStatus}
-            sendStatus={sendStatus} />
+                modalOpen={modalOpen} 
+                setModalOpen={setModalOpen}
+                status={status}
+                setStatus={setStatus}
+                sendStatus={sendStatus} 
+            />
+
+            <div>
+                {allStatuses.map((posts) => {
+                    return (
+                        <PostsCard posts={posts}/>
+                    )
+                })}
+            </div>
+
         </div>
     )
 }
