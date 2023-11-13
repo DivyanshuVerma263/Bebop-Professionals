@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { RegisterAPI, GoogleSignInAPI } from '../api/AuthAPI'
+import { RegisterAPI, GoogleSignInAPI} from '../api/AuthAPI'
+import {postUserData} from "../api/FirestoreAPI"
 import { useNavigate } from "react-router-dom";
 import GoogleButton from 'react-google-button';
 import '../Sass/LoginComponent.scss';
@@ -15,7 +16,9 @@ const RegisterComponent = () => {
         try {
             let res = await RegisterAPI(credentials.email, credentials.password);
             toast.success("Account Created!");
-            navigate("/home");
+            postUserData({name: credentials.name, email: credentials.email});
+            localStorage.setItem('userEmail', res.user.email);
+            navigate('/home');
         }
         catch (err) {
             toast.error("Cannot Create your account ");
@@ -38,6 +41,12 @@ const RegisterComponent = () => {
                 <p className="sub-heading">Stay updated on your professional world</p>
                 <div className="auth-inputs">
                     <input
+                        onChange={(event) => setCredentials({ ...credentials, name: event.target.value })}
+                        type='text'
+                        className='common-input'
+                        placeholder='Your Name'
+                    />
+                    <input
                         onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
                         className='common-input'
                         placeholder='Email or Phone Number'
@@ -52,7 +61,11 @@ const RegisterComponent = () => {
 
                 </div>
                 
-                <button className='login-btn' onClick={register}>Agree & Join</button>
+                <button 
+                    className='login-btn' 
+                    onClick={register}>
+                        Agree & Join
+                </button>
             </div>
             
             <hr className="hr-text" data-content="or" />

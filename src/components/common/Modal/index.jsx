@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Modal, Progress } from "antd";
-import { AiOutlinePicture } from "react-icons/ai";
-import ReactQuill from "react-quill";
 import "./index.scss";
 
 const ModalComponent = ({
@@ -11,14 +9,9 @@ const ModalComponent = ({
   setStatus,
   sendStatus,
   isEdit,
-  updateStatus,
-  uploadPostImage,
-  setPostImage,
-  postImage,
-  currentPost,
-  setCurrentPost,
+  updateStatus
 }) => {
-  const [progress, setProgress] = useState(0);
+  
   return (
     <>
       <Modal
@@ -44,14 +37,13 @@ const ModalComponent = ({
             type="primary"
             // post button active only when something is written
             disabled={status.length > 0 ? false : true}>
-
             {isEdit ? "Update" : "Post"}
           </Button>,
         ]}
       >
           <input className="modal-input"
-          placeholder="Write something"
-          onChange={(event)=>setStatus(event.target.value)}/>
+            placeholder="Write something to post"
+            onChange={(event)=>setStatus(event.target.value)}/>
 
       </Modal>
     </>

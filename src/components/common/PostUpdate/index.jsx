@@ -1,13 +1,14 @@
 import React, { useState, useMemo } from "react";
 import { postStatus, getStatus, updatePost } from "../../../api/FirestoreAPI";
-// import { getCurrentTimeStamp } from "../../../helpers/useMoment";
+import { getCurrentTimeStamp } from "../../../../helpers/useMoment";
 import ModalComponent from "../Modal";
 // import { uploadPostImage } from "../../../api/ImageUpload";
-// import { getUniqueID } from "../../../helpers/getUniqueId";
+import { getUniqueID } from "../../../../helpers/getUniqueId";
 import PostsCard from "../PostsCard";
 import "./index.scss";
 
-function PostStatus() {
+function PostStatus({currentUser}) {
+    
     const [modalOpen, setModalOpen] = useState(false);
     const [status, setStatus] = useState("");
     const [allStatuses, setAllStatus] = useState([]);
@@ -15,43 +16,50 @@ function PostStatus() {
     const [isEdit, setIsEdit] = useState(false);
     const [postImage, setPostImage] = useState(""); 
     
-    
+    const getEditData = (posts) => {
+        setModalOpen(true);
+        setStatus(posts?.status);
+        setCurrentPost(posts);
+        setIsEdit(true);
+      };
+
+
     const sendStatus = async () => {
         let object = {
             status: status,
-            // timeStamp: getCurrentTimeStamp("LLL"),
-            // userEmail: currentUser.email,
-            // userName: currentUser.name,
-            // postID: getUniqueID(),
-            // userID: currentUser.id,
-            postImage: postImage,
-          };
+            timeStamp: getCurrentTimeStamp("LLL"),
+            userEmail: currentUser.email,
+            userName: currentUser.name,
+            postID: getUniqueID()
+          }
+
         //adding the object
         await postStatus(object); 
         
         // close the modal
         await setModalOpen(false); 
-        
+
         //reseting to default so that we don't see the added document again for posting
-        await setStatus(""); 
+        await setStatus(''); 
+                
     }
 
+    // to display all the posts by retreiving them
     useMemo(() => {
         getStatus(setAllStatus);
     }, []);
     
-// console.log(allStatuses);
     return (
         <div className="post-status-main">
             <div className="user-details">
-                {/* <img src={currentUser?.imageLink} alt="imageLink" /> */}
-                {/* <p className="name">{currentUser?.name}</p>
-                <p className="headline">{currentUser?.headline}</p> */}
+                <img src={currentUser?.imageLink} alt="imageLink" />
+                 <p className="name">{currentUser?.name}</p>
+                <p className="headline">{currentUser?.headline}</p> 
             </div>
             <div className="post-status">
                 <img
                     className="post-image"
-                    // src={currentUser?.imageLink}
+                    src={currentUser?.imageLink}
                     alt="imageLink"
                 />
                 <button
@@ -74,8 +82,11 @@ function PostStatus() {
 
             <div>
                 {allStatuses.map((posts) => {
+                    console.log(posts);
                     return (
-                        <PostsCard posts={posts}/>
+                        <>
+                        <PostsCard posts={posts} getEditData={getEditData}/>
+                        </>
                     )
                 })}
             </div>

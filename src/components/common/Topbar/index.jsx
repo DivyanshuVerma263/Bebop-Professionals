@@ -11,8 +11,9 @@ import {
 import { useNavigate } from "react-router-dom";
 import { BsBriefcase } from "react-icons/bs";
 import './index.scss'
+import ProfilePopup from "../ProfilePopup";
 
-function Topbar() {
+function Topbar({currentUser}) {
     const [popupVisible, setPopupVisible] = useState(false);
     const [isSearch, setIsSearch] = useState(false);
     const [users, setUsers] = useState([]);
@@ -24,15 +25,18 @@ function Topbar() {
         navigate(route);
       };
 
+    const displayPopup = () => {
+        setPopupVisible(!popupVisible);
+    };  
     return (
         <div className="topbar-main">
             {popupVisible ? (
                 <div className="popup-position">
                     <ProfilePopup />
                 </div>
-            ) : (
-                <></>
-            )}
+            ) : ( 
+             <></>
+            )} 
 
             <img className="linkedin-logo" src={LinkedinLogo} alt="LinkedinLogo" />
             {isSearch ? (
@@ -65,9 +69,9 @@ function Topbar() {
 
             <img
                 className="user-logo"
-                // src={currentUser?.imageLink}
+                src={currentUser?.imageLink}
                 alt="user"
-            // onClick={displayPopup}
+                onClick={displayPopup}
             />
 
 

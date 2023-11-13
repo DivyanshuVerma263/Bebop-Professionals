@@ -1,10 +1,10 @@
 import React from 'react'
 import PostStatus from './common/PostUpdate'
 
-function HomeComponent() {
+function HomeComponent({currentUser}) {
   return (
     <div>
-      <PostStatus />
+      <PostStatus currentUser={currentUser}/>
     </div>
   )
 }

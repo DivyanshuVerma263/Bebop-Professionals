@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { auth } from '../firebaseConfig'
 
 
-function Home() {
+function Home({currentUser}) {
   const [loading,setLoading]=useState(true);
 
   let navigate=useNavigate();
@@ -25,7 +25,7 @@ function Home() {
   return (
     loading ?
     <Loader /> :
-    <HomeComponent />
+    <HomeComponent currentUser={currentUser}/>
   )
 }
 

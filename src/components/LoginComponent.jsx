@@ -15,9 +15,11 @@ const LoginComponent = () => {
         try {
             let res = await LoginAPI(credentials.email, credentials.password);
             toast.success("Signed In successfully!");
+            localStorage.setItem('userEmail', res.user.email);
+            navigate('/home');
         }
         catch (err) {
-            toast.error("Wrong Credentials!!!");
+            toast.error("Please check your Credentials");
             console.log(err);
         }
     }
@@ -27,9 +29,10 @@ const LoginComponent = () => {
         try{
             let response = await GoogleSignInAPI();
             toast.success("Signed In successfully!");
+            localStorage.setItem('userEmail', response.user.email);
             
         }
-        catch{
+        catch(err){
             toast.error("Wrong Credentials!!!");
             console.log(err);
 
