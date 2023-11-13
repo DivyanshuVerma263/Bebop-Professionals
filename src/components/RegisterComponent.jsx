@@ -3,9 +3,9 @@ import { RegisterAPI, GoogleSignInAPI} from '../api/AuthAPI'
 import {postUserData} from "../api/FirestoreAPI"
 import { useNavigate } from "react-router-dom";
 import GoogleButton from 'react-google-button';
-import '../Sass/LoginComponent.scss';
-import BepopLogo from "../assets/react.svg"
+import BepopLogo from "../assets/BebopLogo.png"
 import {toast} from 'react-toastify';
+import '../Sass/LoginComponent.scss';
 
 const RegisterComponent = () => {
     let navigate=useNavigate();
@@ -38,7 +38,7 @@ const RegisterComponent = () => {
             <img src={BepopLogo} className='bepopLogo' />
             <div className="login-wrapper-inner">
                 <h1 className="heading">Sign Up</h1>
-                <p className="sub-heading">Stay updated on your professional world</p>
+                <p className="sub-heading">Work...Connect...Grow...</p>
                 <div className="auth-inputs">
                     <input
                         onChange={(event) => setCredentials({ ...credentials, name: event.target.value })}
@@ -75,7 +75,7 @@ const RegisterComponent = () => {
                         onClick={googleSignIn} />
                     
                     <p className="go-to-signup">
-                    Already on Bepop Professionals?{" "}
+                    Already on Bebop Professionals?{" "}
                     <span className="join-now" onClick={() => navigate("/")}>
                         Sign In
                     </span>

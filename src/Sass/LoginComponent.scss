@@ -1,6 +1,6 @@
-$linkedinBlue1: #0072b1;
-$linkedinBlue2: #0073b1;
-$linkedinBlue3: #004c75;
+$bebopBlue1: #0072b1;
+$bebopBlue2: #0073b1;
+$bebopBlue3: #004c75;
 
 body {
   margin: 0;
@@ -11,6 +11,10 @@ body {
   background-color: white !important;
   height: 100vh;
 
+  .bepopLogo{
+    height: 100px;
+    width: auto;
+  }
   .login-wrapper-inner {
     display: flex;
     flex-direction: column;
@@ -33,7 +37,7 @@ body {
   width: 300px;
   height: 50px;
   cursor: pointer;
-  background-color: $linkedinBlue2;
+  background-color: $bebopBlue2;
   border-radius: 30px;
   outline: none;
   border: none;
@@ -45,7 +49,7 @@ body {
 }
 
 .login-btn:hover {
-  background-color: $linkedinBlue3;
+  background-color: $bebopBlue3;
 }
 
 .auth-inputs {
@@ -57,8 +61,8 @@ body {
     height: 30px;
     padding: 10px;
     background-color: white;
-    // outline: none;
-    // border: 1px solid black;
+    outline: none;
+    border: 1px solid black;
   }
   .common-input:focus{
     outline: blue;
@@ -80,7 +84,7 @@ body {
   opacity: 0.5;
   &:before {
     content: "";
-    // use the linear-gradient for the fading effect
+    // use the linear-gradient for the fading effect 818078
     // use a solid background color for a solid bar
     background: linear-gradient(to right, transparent, #818078, transparent);
     position: absolute;
@@ -94,7 +98,6 @@ body {
     position: relative;
     display: inline-block;
     color: black;
-
     padding: 0 0.5em;
     line-height: 1.5em;
     // this is really the only tricky part, you need to specify the background color of the container element...
@@ -118,9 +121,12 @@ body {
   }
 
   .join-now {
-    color: $linkedinBlue1;
+    color: $bebopBlue1;
     font-family: system-ui;
     cursor: pointer;
     font-size: 18px;
+  }
+  .join-now:hover {
+    text-decoration: underline;
   }
 }

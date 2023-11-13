@@ -10,6 +10,7 @@ const Login = () => {
   const [loading,setLoading]=useState(true);
 
   let navigate=useNavigate();
+
   useEffect(() => {
     onAuthStateChanged(auth, res => {
       if(res?.accessToken){
@@ -22,11 +23,12 @@ const Login = () => {
   },[]);
 
 
-
   return (
-    loading ?
-    <Loader /> :
-    <LoginComponent />
+    loading 
+    ?
+      <Loader /> 
+    :
+      <LoginComponent />
   )
 }
 

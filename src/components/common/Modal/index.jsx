@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, Progress } from "antd";
+import { Button, Modal } from "antd";
 import "./index.scss";
 
 const ModalComponent = ({

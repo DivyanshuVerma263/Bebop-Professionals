@@ -23,7 +23,7 @@ let connectionRef = collection(firestore, "connections");
 export const postStatus = (object) => {
   addDoc(postsRef, object)
     .then(() => {
-      toast.success("Post has been added successfully");
+      toast.success("Post added successfully");
     })
     .catch((err) => {
       console.log(err);
@@ -81,8 +81,7 @@ export const postUserData = (object) => {
     });
 };
 
-export const getCurrentUser = (setCurrentUser) => {
-  
+export const getCurrentUser = (setCurrentUser) => {  
   onSnapshot(userRef, (response) => {
     setCurrentUser(
       response.docs

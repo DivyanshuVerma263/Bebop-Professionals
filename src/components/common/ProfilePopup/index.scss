@@ -1,14 +1,18 @@
 .popup-card {
-    border: 1px solid #a8a8a8;
-    width: 200px;
+  margin: 0;
+    border: 1px solid #a8a8a8;  
+    width: 100px;
     height: auto;
     background-color: whitesmoke;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
-  
     flex-direction: column;
-    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    // padding: 20px;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    // margin: 0;
     .name {
       font-size: 16px;
       color: rgba(0, 0, 0, 0.9);
@@ -23,7 +27,18 @@
       color: rgba(0, 0, 0, 0.9);
       margin-top: -15px;
     }
+    .popup-options{
+      margin: 0;
+      padding: 0;
+    }
     .popup-option {
       cursor: pointer;
+      list-style: none;
+      padding: 10px 0 10px 0;
+    }
+    .popup-option:hover{
+      background-color: #7b7979;
+      color: white;
     }
   }
+

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { LoginAPI, GoogleSignInAPI } from '../api/AuthAPI'
 import { useNavigate } from "react-router-dom";
 import GoogleButton from 'react-google-button';
-import '../Sass/LoginComponent.scss';
-import BepopLogo from "../assets/react.svg"
+import BepopLogo from "../assets/BebopLogo.png"
 import {toast} from 'react-toastify';
+import '../Sass/LoginComponent.scss';
 
 const LoginComponent = () => {
     let navigate=useNavigate();
@@ -35,7 +35,6 @@ const LoginComponent = () => {
         catch(err){
             toast.error("Wrong Credentials!!!");
             console.log(err);
-
         }
         
     }
@@ -73,7 +72,7 @@ const LoginComponent = () => {
                         onClick={googleSignIn} />
                     
                     <p className="go-to-signup">
-                    New to Bepop Professionals?{" "}
+                    New to Bebop Professionals?{" "}
                     <span className="join-now" onClick={() => navigate("/register")}>
                         Join now
                     </span>

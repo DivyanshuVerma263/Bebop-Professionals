@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import LinkedinLogo from "../../../assets/react.svg";
-import user from "../../../assets/react.svg";
+import BebopLogo from "../../../assets/BebopLogo.png";
+import user from "../../../assets/user.png";
 import {
     AiOutlineHome,
     AiOutlineUserSwitch,
@@ -10,8 +10,8 @@ import {
 } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { BsBriefcase } from "react-icons/bs";
-import './index.scss'
 import ProfilePopup from "../ProfilePopup";
+import './index.scss'
 
 function Topbar({currentUser}) {
     const [popupVisible, setPopupVisible] = useState(false);
@@ -38,18 +38,21 @@ function Topbar({currentUser}) {
              <></>
             )} 
 
-            <img className="linkedin-logo" src={LinkedinLogo} alt="LinkedinLogo" />
-            {isSearch ? (
+            <img className="bebop-logo" src={BebopLogo} alt="BebopLogo" />
+
+            {isSearch 
+            ? (
                 <SearchUsers
                     setIsSearch={setIsSearch}
                     setSearchInput={setSearchInput}
                 />
             ) : (
+                <div className="react-icons-container"> 
                 <div className="react-icons">
                     <AiOutlineSearch
                         size={30}
                         className="react-icon"
-                        onClick={() => setIsSearch(true)}
+                        // onClick={() => setIsSearch(true)}
                     />
                     <AiOutlineHome
                         size={30}
@@ -65,11 +68,13 @@ function Topbar({currentUser}) {
                     <AiOutlineMessage size={30} className="react-icon" />
                     <AiOutlineBell size={30} className="react-icon" />
                 </div>
+                </div>
             )}
 
             <img
                 className="user-logo"
-                src={currentUser?.imageLink}
+                
+                src={(currentUser?.imageLink)||user}
                 alt="user"
                 onClick={displayPopup}
             />
