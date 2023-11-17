@@ -13,17 +13,17 @@ function Home({currentUser}) {
   let navigate=useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, res => {
-      if(!res?.accessToken){
-        navigate("/");
+      if(!res?.accessToken){  //if token exists then navigate to the home page 
+        navigate("/"); 
       }
       else {
-        setLoading(false);
+        setLoading(false);  //if token doesn't exist then loading state is to be false 
       }
     })
   },[]);
 
   return (
-    loading ?
+    loading ?  //if loading is true then call the loader
     <Loader /> :
     <HomeComponent currentUser={currentUser}/>
   )

@@ -17,12 +17,12 @@ const RegisterComponent = () => {
         try {
             let res = await RegisterAPI(credentials.email, credentials.password);
             toast.success("Account Created!");
-            postUserData({
+            postUserData({                  //data of the user
                 userID: getUniqueID(),
-                name: credentials.name, 
+                name: credentials.name,       
                 email: credentials.email
             });
-            localStorage.setItem('userEmail', res.user.email);
+            localStorage.setItem('userEmail', res.user.email);  //updates/sets the value to the given email
             navigate('/home');
         }
         catch (err) {
@@ -34,7 +34,7 @@ const RegisterComponent = () => {
     const googleSignIn = () => {
         let response = GoogleSignInAPI();
         if(!response) toast.success("Signed In successfully!");
-        navigate("/home");
+        navigate("/home");   //navigate to the home page if signed in
     }
 
 
@@ -45,19 +45,19 @@ const RegisterComponent = () => {
                 <h1 className="heading">Sign Up</h1>
                 <p className="sub-heading">Work...Connect...Grow...</p>
                 <div className="auth-inputs">
-                    <input
+                    <input    //enter user's name
                         onChange={(event) => setCredentials({ ...credentials, name: event.target.value })}
-                        type='text'
+                        type='text' 
                         className='common-input input'
                         placeholder='Your Name'
                     />
-                    <input
+                    <input    //enter email or phone number
                         onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
                         className='common-input input'
                         placeholder='Email or Phone Number'
                     />
 
-                    <input
+                    <input        //enter thepassword
                         onChange={(event) => setCredentials({ ...credentials, password: event.target.value })}
                         type='password'
                         className='common-input input'
@@ -69,12 +69,12 @@ const RegisterComponent = () => {
                 <button 
                     className='login-btn' 
                     onClick={register}>
-                        Agree & Join
+                        Agree & Join?
                 </button>
             </div>
             
             <hr className="hr-text" data-content="or" />
-                <div className="google-btn-container">
+                <div className="google-btn-container">   
                     
                     <GoogleButton className='google-btn'
                         onClick={googleSignIn} />

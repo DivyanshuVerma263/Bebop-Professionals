@@ -12,7 +12,7 @@ function Profile({ currentUser }) {
     let navigate = useNavigate();
     useEffect(() => {
         onAuthStateChanged(auth, res => {
-            if (!res?.accessToken) {
+            if (!res?.accessToken) {  //if token exists then navigate to login page
                 navigate("/");
             }
             else {

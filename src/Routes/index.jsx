@@ -4,7 +4,7 @@ import Register from "../Pages/Register";
 import HomeLayout from "../layouts/HomeLayout";
 import ProfileLayout from "../layouts/ProfileLayout";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter([   //routes
     {
       path: "/",
       element: <Login />,

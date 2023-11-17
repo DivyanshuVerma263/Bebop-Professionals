@@ -49,24 +49,33 @@ function Topbar({currentUser}) {
             ) : (
                 <div className="react-icons-container"> 
                 <div className="react-icons">
-                    <AiOutlineSearch
+                    <AiOutlineSearch   //search icon
                         size={30}
                         className="react-icon"
                         // onClick={() => setIsSearch(true)}
                     />
-                    <AiOutlineHome
+                    <AiOutlineHome    //home icon
                         size={30}
                         className="react-icon"
                         onClick={() => goToRoute("/home")}
                     />
-                    <AiOutlineUserSwitch
+                    <AiOutlineUserSwitch  //user icon
                         size={30}
                         className="react-icon"
                         onClick={() => goToRoute("/connections")}
                     />
-                    <BsBriefcase size={30} className="react-icon" />
-                    <AiOutlineMessage size={30} className="react-icon" />
-                    <AiOutlineBell size={30} className="react-icon" />
+                    <BsBriefcase 
+                        size={30} 
+                        className="react-icon"
+                    />  
+                    <AiOutlineMessage  //messaging icon
+                        size={30}
+                        className="react-icon" 
+                    />  
+                    <AiOutlineBell  //bell icon for notifications
+                        size={30} 
+                        className="react-icon"
+                   />
                 </div>
                 </div>
             )}

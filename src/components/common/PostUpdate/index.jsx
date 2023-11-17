@@ -9,7 +9,7 @@ import "./index.scss";
 
 function PostStatus({ currentUser }) {
 
-    const [modalOpen, setModalOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false); 
     const [status, setStatus] = useState("");
     const [allStatuses, setAllStatus] = useState([]);
     const [currentPost, setCurrentPost] = useState({});

@@ -31,7 +31,7 @@ export const RegisterAPI = ( email ,password) => {
 };
 
 
-// google signin
+// google signin 
 export const GoogleSignInAPI = () => {
     try{
         let googleProvider = new GoogleAuthProvider();

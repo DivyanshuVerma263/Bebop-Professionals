@@ -14,9 +14,9 @@ const LoginComponent = () => {
         // passing the email and password for authentication
         try {
             let res = await LoginAPI(credentials.email, credentials.password);
-            toast.success("Signed In successfully!");
+            toast.success("Signed In successfully!");  //success message
             localStorage.setItem('userEmail', res.user.email);
-            navigate('/home');
+            navigate('/home'); //if signed in successfully then navigate to the home page
         }
         catch(err){
             toast.error("Please check your Credentials");
@@ -34,38 +34,38 @@ const LoginComponent = () => {
         }
         catch(err){
             toast.error("Wrong Credentials!!!");
-            console.log(err);
+            console.log(err);  //Error message
         }
         
     }
 
 
     return (
-        <div className='login-wrapper'>
-            <img src={BepopLogo} className='bepopLogo' />
-            <div className="login-wrapper-inner">
-                <h1 className="heading">Sign in</h1>
+        <div className='login-wrapper'> 
+            <img src={BepopLogo} className='bepopLogo' />  
+            <div className="login-wrapper-inner"> 
+                <h1 className="heading">Sign in</h1>  
                 <p className="sub-heading">Stay updated on your professional world</p>
-                <div className="auth-inputs">
-                    <input
+                <div className="auth-inputs"> 
+                    <input   //entering the email
                         onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
                         className='common-input input'
                         placeholder='Enter your Email'
                     />
 
-                    <input
+                    <input  //entering the password
                         onChange={(event) => setCredentials({ ...credentials, password: event.target.value })}
-                        type='password'
+                        type='password' 
                         className='common-input input'
                         placeholder='Enter your Password'
                     />
 
                 </div>
                 
-                <button className='login-btn' onClick={login}>Log In</button>
+                <button className='login-btn' onClick={login}>Log In</button> 
             </div>
-            
-            <hr className="hr-text" data-content="or" />
+
+            <hr className="hr-text" data-content="or" /> 
                 <div className="google-btn-container">
                     
                     <GoogleButton className='google-btn'
@@ -74,7 +74,7 @@ const LoginComponent = () => {
                     <p className="go-to-signup">
                     New to Bebop Professionals?{" "}
                     <span className="join-now" onClick={() => navigate("/register")}>
-                        Join now
+                        Join now 
                     </span>
                     </p>
                 </div>
