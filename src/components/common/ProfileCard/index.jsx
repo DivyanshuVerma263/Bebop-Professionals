@@ -1,15 +1,41 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import PostsCard from '../PostsCard';
+import FileUploadModal from '../FileUploadModal';
 import { useLocation } from 'react-router-dom';
-import { getSingleStatus, getSingleUser, getStatus } from '../../../api/FirestoreAPI';
+import { getSingleStatus, getSingleUser,editProfile, getStatus } from '../../../api/FirestoreAPI';
 import { HiOutlinePencil } from 'react-icons/hi'
+import { uploadImage as uploadImageAPI } from '../../../api/ImageUpload';
+import defaultUser from '../../../assets/user.png'
 import './index.scss'
 
 
 function ProfileCard({ currentUser, onEdit }) {
     let location = useLocation();
+
+    
     const [allStatuses, setAllStatus] = useState([]);
     const [currentProfile, setCurrentProfile] = useState({});
+    const [currentImage, setCurrentImage] = useState({});
+    const [progress, setProgress] = useState(0);
+    const [modalOpen, setModalOpen] = useState(false);
+    
+
+
+    //getting images from the bucket created in database
+    const getImage = (event) => {
+        setCurrentImage(event.target.files[0])
+    }
+
+    const uploadImage = () => {
+        uploadImageAPI(
+            currentImage, 
+            currentUser.id, 
+            setModalOpen, 
+            setProgress, 
+            setCurrentImage
+        );
+
+    };
 
     useMemo(() => {
         if (location?.state?.id) {
@@ -24,6 +50,15 @@ function ProfileCard({ currentUser, onEdit }) {
 
     return (
         <>
+        <FileUploadModal 
+            modalOpen={modalOpen} 
+            setModalOpen={setModalOpen} 
+            getImage={getImage} 
+            uploadImage={uploadImage}
+            currentImage={currentImage}
+            progress={progress}
+        />
+        
             <div className='profile-card'>
                 <div className='edit-btn'>
                     <HiOutlinePencil className='edit-icon' onClick={onEdit} />
@@ -31,6 +66,16 @@ function ProfileCard({ currentUser, onEdit }) {
 
                 <div className="profile-info">
                     <div>
+                        <img 
+                            className="profile-image" 
+                            onClick={() => setModalOpen(true)}
+                            src={
+                                Object.values(currentProfile).length === 0 
+                                ? currentUser.imageLink
+                                : currentProfile?.imageLink
+                            } 
+                            alt="profile-image" 
+                        />
 
                         <h3 className='userName' >
                             {Object.values(currentProfile).length === 0

@@ -41,6 +41,7 @@ export const getStatus = (setAllStatus) => {
   });
 };
 
+//exporting all the users 
 export const getAllUsers = (setAllUsers) => {
   onSnapshot(userRef, (response) => {
     setAllUsers(
