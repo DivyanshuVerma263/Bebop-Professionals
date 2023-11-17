@@ -46,8 +46,8 @@ function ProfileCard({ currentUser, onEdit }) {
 
                         <p className='location'>
                             {Object.values(currentProfile).length === 0
-                                ? `${currentUser.location}, ${currentUser.country}`
-                                : `${currentProfile.location}, ${currentProfile.country}` }
+                                ? `${currentUser.city}, ${currentUser.country}`
+                                : `${currentProfile.city}, ${currentProfile.country}` }
                         </p>
 
                         <a className='website'

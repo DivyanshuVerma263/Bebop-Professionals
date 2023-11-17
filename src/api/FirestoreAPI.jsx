@@ -20,10 +20,6 @@ let likeRef = collection(firestore, "likes");
 let commentsRef = collection(firestore, "comments");
 let connectionRef = collection(firestore, "connections");
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 export const postStatus = (object) => {
   addDoc(postsRef, object)
     .then(() => {
@@ -56,30 +52,19 @@ export const getAllUsers = (setAllUsers) => {
 };
 
 export const getSingleStatus = (setAllStatus, id) => {
-<<<<<<< HEAD
-=======
   // query if the userID for the post is equal to the id of the current post
->>>>>>> main
   const singlePostQuery = query(postsRef, where("userID", "==", id));
   onSnapshot(singlePostQuery, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id };
       })
-<<<<<<< HEAD
-    );
-  });
-};
-
-export const getSingleUser = (setCurrentUser, email) => {
-=======
       );
     });
   };
   
   export const getSingleUser = (setCurrentUser, email) => {
   // query if the email for the user is equal to the email of the current user
->>>>>>> main
   const singleUserQuery = query(userRef, where("email", "==", email));
   onSnapshot(singleUserQuery, (response) => {
     setCurrentUser(
@@ -113,14 +98,6 @@ export const getCurrentUser = (setCurrentUser) => {
   });
 };
 
-<<<<<<< HEAD
-export const editProfile = (userID, payload) => {
-  let userToEdit = doc(userRef, userID);
-
-  updateDoc(userToEdit, payload)
-    .then(() => {
-      toast.success("Profile has been updated successfully");
-=======
 // this edits the profile with the data passed
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(userRef, userID);
@@ -129,38 +106,44 @@ export const editProfile = (userID, payload) => {
   updateDoc(userToEdit, payload)
     .then(() => {
       toast.success("Profile updated successfully");
->>>>>>> main
     })
     .catch((err) => {
       console.log(err);
     });
-};
-
-export const likePost = (userId, postId, liked) => {
-  try {
-    let docToLike = doc(likeRef, `${userId}_${postId}`);
-    if (liked) {
-      deleteDoc(docToLike);
-    } else {
-      setDoc(docToLike, { userId, postId });
+  };
+  
+  
+  export const likePost = (userId, postId, liked) => {
+    try{
+      let docToLike = doc(likeRef, `${userId}_${postId}`);
+      if (liked) {
+        // dislike on second clicking the like button
+        deleteDoc(docToLike);
+      } else {
+        //setDoc adds the document with unique id
+        setDoc(docToLike, { userId, postId });
+      }
+    } 
+    catch(err){
+      console.log(err);
     }
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
-  try {
-    let likeQuery = query(likeRef, where("postId", "==", postId));
-
-    onSnapshot(likeQuery, (response) => {
-      let likes = response.docs.map((doc) => doc.data());
-      let likesCount = likes?.length;
-
+  };
+  
+  
+  export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
+    try {
+      // check if the post id are same  
+      let likeQuery = query(likeRef, where("postId", "==", postId));
+      
+      onSnapshot(likeQuery, (response) => {
+        let likes = response.docs.map((doc) => doc.data());
+        let likesCount = likes?.length;
+        
+        // check if the like id we are getting is same as that we are getting from param  
       const isLiked = likes.some((like) => like.userId === userId);
 
-      setLikesCount(likesCount);
-      setLiked(isLiked);
+      setLikesCount(likesCount); //updating the value of likesCount
+      setLiked(isLiked); //changing the state to filled like
     });
   } catch (err) {
     console.log(err);

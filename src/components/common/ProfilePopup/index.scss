@@ -1,49 +1,4 @@
 .popup-card {
-<<<<<<< HEAD
-  margin: 0;
-    border: 1px solid #a8a8a8;  
-    width: 100px;
-    height: auto;
-    background-color: whitesmoke;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    // padding: 20px;
-    // padding-left: 10px;
-    // padding-right: 10px;
-    // margin: 0;
-    .name {
-      font-size: 16px;
-      color: rgba(0, 0, 0, 0.9);
-      font-weight: 600;
-      text-align: left;
-      margin-top: -7px;
-    }
-  
-    .headline {
-      font-size: 14px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.9);
-      margin-top: -15px;
-    }
-    .popup-options{
-      margin: 0;
-      padding: 0;
-    }
-    .popup-option {
-      cursor: pointer;
-      list-style: none;
-      padding: 10px 0 10px 0;
-    }
-    .popup-option:hover{
-      background-color: #7b7979;
-      color: white;
-    }
-  }
-
-=======
   border: 1px solid #a8a8a8;
   width: 200px;
   height: auto;
@@ -72,4 +27,3 @@
     cursor: pointer;
   }
 }
->>>>>>> main

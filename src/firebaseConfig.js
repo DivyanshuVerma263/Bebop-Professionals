@@ -5,11 +5,7 @@ import { getFirestore } from "firebase/firestore"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-<<<<<<< HEAD
-// Your web app's Firebase configuration
-=======
 //  web app's Firebase configuration
->>>>>>> main
 const firebaseConfig = {
   apiKey: "AIzaSyCVBNH6ippI8oQU-7GkUl0-Vg39zaoxZ-I",
   authDomain: "bepop-professionals.firebaseapp.com",

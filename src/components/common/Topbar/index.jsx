@@ -49,38 +49,21 @@ function Topbar({currentUser}) {
             ) : (
                 <div className="react-icons-container"> 
                 <div className="react-icons">
-<<<<<<< HEAD
-                    <AiOutlineSearch
-=======
                     <AiOutlineSearch   //search icon
->>>>>>> main
                         size={30}
                         className="react-icon"
                         // onClick={() => setIsSearch(true)}
                     />
-<<<<<<< HEAD
-                    <AiOutlineHome
-=======
                     <AiOutlineHome    //home icon
->>>>>>> main
                         size={30}
                         className="react-icon"
                         onClick={() => goToRoute("/home")}
                     />
-<<<<<<< HEAD
-                    <AiOutlineUserSwitch
-=======
                     <AiOutlineUserSwitch  //user icon
->>>>>>> main
                         size={30}
                         className="react-icon"
                         onClick={() => goToRoute("/connections")}
                     />
-<<<<<<< HEAD
-                    <BsBriefcase size={30} className="react-icon" />
-                    <AiOutlineMessage size={30} className="react-icon" />
-                    <AiOutlineBell size={30} className="react-icon" />
-=======
                     <BsBriefcase 
                         size={30} 
                         className="react-icon"
@@ -93,7 +76,6 @@ function Topbar({currentUser}) {
                         size={30} 
                         className="react-icon"
                    />
->>>>>>> main
                 </div>
                 </div>
             )}

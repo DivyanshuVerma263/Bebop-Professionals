@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import { onLogout } from '../../../api/AuthAPI'
-import './index.scss'
-
-function ProfilePopup() {
-  return (
-    <div className='popup-card'>
-        <ul className='popup-options'>
-            <li className='popup-option' onClick={onLogout}>Logout</li>
-        </ul>
-=======
 import React, { useState, useMemo } from 'react'
 import { onLogout } from '../../../api/AuthAPI'
 import Button from '../Button'
@@ -40,7 +28,6 @@ function ProfilePopup() {
       />
 
       <Button title="Log out" onClick={onLogout} />
->>>>>>> main
     </div>
   )
 }
