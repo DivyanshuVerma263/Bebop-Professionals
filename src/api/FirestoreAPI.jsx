@@ -20,6 +20,10 @@ let likeRef = collection(firestore, "likes");
 let commentsRef = collection(firestore, "comments");
 let connectionRef = collection(firestore, "connections");
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 export const postStatus = (object) => {
   addDoc(postsRef, object)
     .then(() => {
@@ -52,17 +56,30 @@ export const getAllUsers = (setAllUsers) => {
 };
 
 export const getSingleStatus = (setAllStatus, id) => {
+<<<<<<< HEAD
+=======
+  // query if the userID for the post is equal to the id of the current post
+>>>>>>> main
   const singlePostQuery = query(postsRef, where("userID", "==", id));
   onSnapshot(singlePostQuery, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id };
       })
+<<<<<<< HEAD
     );
   });
 };
 
 export const getSingleUser = (setCurrentUser, email) => {
+=======
+      );
+    });
+  };
+  
+  export const getSingleUser = (setCurrentUser, email) => {
+  // query if the email for the user is equal to the email of the current user
+>>>>>>> main
   const singleUserQuery = query(userRef, where("email", "==", email));
   onSnapshot(singleUserQuery, (response) => {
     setCurrentUser(
@@ -96,12 +113,23 @@ export const getCurrentUser = (setCurrentUser) => {
   });
 };
 
+<<<<<<< HEAD
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(userRef, userID);
 
   updateDoc(userToEdit, payload)
     .then(() => {
       toast.success("Profile has been updated successfully");
+=======
+// this edits the profile with the data passed
+export const editProfile = (userID, payload) => {
+  let userToEdit = doc(userRef, userID);
+
+  // payload conatins the data to be edited
+  updateDoc(userToEdit, payload)
+    .then(() => {
+      toast.success("Profile updated successfully");
+>>>>>>> main
     })
     .catch((err) => {
       console.log(err);

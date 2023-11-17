@@ -18,7 +18,11 @@ body {
   .login-wrapper-inner {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     justify-content: center;
+=======
+    justify-content: center;  //distributes the space between and around the items on the horizontal axis
+>>>>>>> main
     align-items: center;
   }
   .heading {
@@ -33,7 +37,11 @@ body {
   }
 }
 
+<<<<<<< HEAD
 .login-btn {
+=======
+.login-btn {   
+>>>>>>> main
   width: 300px;
   height: 50px;
   cursor: pointer;
@@ -64,9 +72,16 @@ body {
     outline: none;
     border: 1px solid black;
   }
+<<<<<<< HEAD
   .common-input:focus{
     outline: blue;
   }
+=======
+}
+.input:focus-within{
+  border: 1px solid blue;
+  box-shadow: 0px 0px 10px lightblue;
+>>>>>>> main
 }
 
 .bepopLogo {
@@ -84,8 +99,12 @@ body {
   opacity: 0.5;
   &:before {
     content: "";
+<<<<<<< HEAD
     // use the linear-gradient for the fading effect 818078
     // use a solid background color for a solid bar
+=======
+    // used linear-gradient for the fading effect 818078
+>>>>>>> main
     background: linear-gradient(to right, transparent, #818078, transparent);
     position: absolute;
     left: 0;
@@ -100,7 +119,11 @@ body {
     color: black;
     padding: 0 0.5em;
     line-height: 1.5em;
+<<<<<<< HEAD
     // this is really the only tricky part, you need to specify the background color of the container element...
+=======
+    // specifying the background color of the container element
+>>>>>>> main
     color: #818078;
     background-color: #fcfcfa;
   }

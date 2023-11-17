@@ -9,7 +9,11 @@ import "./index.scss";
 
 function PostStatus({ currentUser }) {
 
+<<<<<<< HEAD
     const [modalOpen, setModalOpen] = useState(false);
+=======
+    const [modalOpen, setModalOpen] = useState(false); 
+>>>>>>> main
     const [status, setStatus] = useState("");
     const [allStatuses, setAllStatus] = useState([]);
     const [currentPost, setCurrentPost] = useState({});
@@ -37,10 +41,17 @@ function PostStatus({ currentUser }) {
         await postStatus(object);
 
         // close the modal
+<<<<<<< HEAD
         await setModalOpen(false);
 
         //reseting to default so that we don't see the added document again for posting
         await setStatus('');
+=======
+        setModalOpen(false);
+
+        //reseting to default so that we don't see the added document again for posting
+        setStatus('');
+>>>>>>> main
 
     }
 
@@ -69,10 +80,17 @@ function PostStatus({ currentUser }) {
                             setIsEdit(false);
                         }}
                     >
+<<<<<<< HEAD
                         Start a Post
                     </button>
                 </div>
                 <ModalComponent
+=======
+                        Create a Post
+                    </button>
+                </div>
+                <ModalComponent 
+>>>>>>> main
                     modalOpen={modalOpen}
                     setModalOpen={setModalOpen}
                     status={status}
