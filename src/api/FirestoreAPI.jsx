@@ -150,6 +150,7 @@ export const editProfile = (userID, payload) => {
   }
 };
 
+//function to post comment 
 export const postComment = (postId, comment, timeStamp, name) => {
   try {
     addDoc(commentsRef, {
@@ -163,8 +164,10 @@ export const postComment = (postId, comment, timeStamp, name) => {
   }
 };
 
+//function to get all the comments to display
 export const getComments = (postId, setComments) => {
   try {
+    // if the postId of the collection is equal to props postId 
     let singlePostQuery = query(commentsRef, where("postId", "==", postId));
 
     onSnapshot(singlePostQuery, (response) => {
