@@ -26,7 +26,7 @@ function ProfileCard({ currentUser, onEdit }) {
         <>
             <div className='profile-card'>
                 <div className='edit-btn'>
-                    <HiOutlinePencil className='edit-icon' onClick={onEdit} />
+                    <HiOutlinePencil className='edit-icon' onClick={onEdit} />   {/* icon to edit your profile*/}
                 </div>
 
                 <div className="profile-info">
@@ -57,8 +57,8 @@ function ProfileCard({ currentUser, onEdit }) {
                                 : currentProfile?.website}
                         >
                             {Object.values(currentProfile).length === 0
-                                ? `${currentUser.website}`
-                                : currentProfile?.website}
+                                && `${currentUser.website}`
+                                }
                         </a>
 
                     </div>
