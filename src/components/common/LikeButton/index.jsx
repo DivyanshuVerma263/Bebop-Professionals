@@ -40,7 +40,7 @@ function LikeButton({ userId, postId, currentUser }) {
 
     return (
         <div className='like-container'>
-            <p>{likesCount} User Like this Post</p>
+            {/* <p>{likesCount} User Like this Post</p> */}
             <div className="hr-line">
                 <hr />
             </div>
@@ -49,19 +49,19 @@ function LikeButton({ userId, postId, currentUser }) {
 
                 <div className="likes-comment-inner" onClick={handleLike}>
                     {liked ? (
-                        <BsFillHandThumbsUpFill size={30} color="#0a66c2" />
+                        <BsFillHandThumbsUpFill size={25} color="#00A6E0" />
                     ) : (
-                        <BsHandThumbsUp size={30} />
+                        <BsHandThumbsUp size={25} />
                     )}
 
-                    <p className={liked ? "blue" : "black"}>Like</p>
+                    <p className={liked ? "blue" : "black"}>{likesCount}</p>
                 </div>
 
                 {/* show commentbox only when clicked */}
                 <div className="likes-comment-inner" onClick={() => setShowCommentBox(!showCommentBox)}>
                     <AiOutlineComment
                         size={30}
-                        color={showCommentBox ? "#0a66c2" : "#212121"}
+                        color={showCommentBox ? "#00A6E0" : "#e9e9e9"}
                     />
 
 
@@ -71,6 +71,7 @@ function LikeButton({ userId, postId, currentUser }) {
             {showCommentBox ? (
                 <>
                     <input
+                        autoComplete="off"
                         onChange={getComment}
                         placeholder='Add a comment'
                         className='comment-input'

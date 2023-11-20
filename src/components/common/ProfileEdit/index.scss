@@ -6,9 +6,9 @@ $linkedinBlue3: #004c75;
   display: grid;
   margin-top: 40px;
   gap: 20px;
-
   label {
     font-family: system-ui;
+    font-size: 17px;
     margin-bottom: -15px;
   }
 
@@ -40,11 +40,17 @@ $linkedinBlue3: #004c75;
 
 .close-icon {
   cursor: pointer;
-  padding: 7px;
+  padding: 10px;
 }
 
 .close-icon:hover {
   background-color: rgb(197, 197, 197);
-  padding: 7px;
+  color: black;
+  padding: 10px;
   border-radius: 50%;
+}
+.common-input, .common-textArea{
+  font-size: 16px !important;
+  background-color: #0D1B26 !important;
+  color: #e9e9e9 !important;
 }

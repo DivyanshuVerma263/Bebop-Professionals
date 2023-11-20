@@ -14,16 +14,8 @@ function PostStatus({ currentUser }) {
     const [allStatuses, setAllStatus] = useState([]);
     const [currentPost, setCurrentPost] = useState({});
     const [isEdit, setIsEdit] = useState(false);
-
-
-    const getEditData = (posts) => {
-        setModalOpen(true);
-        setStatus(posts?.status);
-        setCurrentPost(posts);
-        setIsEdit(true);
-    };
-
-
+    const [postImage, setPostImage] = useState("");
+    
     const sendStatus = async () => {
         let object = {
             status: status,
@@ -32,18 +24,37 @@ function PostStatus({ currentUser }) {
             userName: currentUser.name,
             postID: getUniqueID(),
             userID: currentUser.id,
+            postImage: postImage,
         }
 
         //adding the object
         await postStatus(object);
 
         // close the modal
-        setModalOpen(false);
+        await setModalOpen(false);
+
+        setIsEdit(false);
 
         //reseting to default so that we don't see the added document again for posting
-        setStatus('');
+        await setStatus('');
 
     }
+    
+    // function to get data for editing post
+    const getEditData = (posts) => {
+        setModalOpen(true);
+        setStatus(posts?.status);
+        setCurrentPost(posts);
+        setIsEdit(true);
+    };
+
+
+    const updateStatus = () => {
+        updatePost(currentPost.id, status, postImage);
+        setModalOpen(false);
+    }
+
+
 
     // to display all the posts by retreiving them
     useMemo(() => {
@@ -79,6 +90,8 @@ function PostStatus({ currentUser }) {
                     status={status}
                     setStatus={setStatus}
                     sendStatus={sendStatus}
+                    isEdit={isEdit}
+                    updateStatus={updateStatus}
                 />
 
                 <div>

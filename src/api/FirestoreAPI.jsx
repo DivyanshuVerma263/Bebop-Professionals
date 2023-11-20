@@ -186,6 +186,7 @@ export const getComments = (postId, setComments) => {
   }
 };
 
+// function to update the posts with the given data
 export const updatePost = (id, status, postImage) => {
   let docToUpdate = doc(postsRef, id);
   try {
@@ -196,11 +197,12 @@ export const updatePost = (id, status, postImage) => {
   }
 };
 
+// function to delete the posts 
 export const deletePost = (id) => {
   let docToDelete = doc(postsRef, id);
   try {
     deleteDoc(docToDelete);
-    toast.success("Post has been Deleted!");
+    toast.success("Post has been deleted!");
   } catch (err) {
     console.log(err);
   }

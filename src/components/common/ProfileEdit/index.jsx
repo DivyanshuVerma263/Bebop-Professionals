@@ -28,7 +28,7 @@ function ProfileEdit({ currentUser, onEdit }) {
         <div className='profile-card'>
 
             <div className='edit-btn'>
-                <AiOutlineClose className='close-icon' onClick={onEdit} size={25}/>
+                <AiOutlineClose className='close-icon' onClick={onEdit} size={25} />
                 {/* <button >Go back</button> */}
             </div>
 
@@ -36,6 +36,7 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>Name</label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="Name"
@@ -45,6 +46,7 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>Headline</label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="Headline"
@@ -54,6 +56,7 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>Country</label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="Country"
@@ -63,6 +66,7 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>City</label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="City"
@@ -72,15 +76,17 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>Company</label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="Company"
                     value={editInputs.company}
                     name="company"
                 />
-                
+
                 <label>Industry </label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="Industry"
@@ -90,6 +96,7 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>College</label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="College"
@@ -99,6 +106,7 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>Website</label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="Website"
@@ -108,6 +116,7 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>About</label>
                 <textarea
+                    autoComplete='off'
                     placeholder="About Me"
                     className="common-textArea"
                     onChange={getInput}
@@ -118,6 +127,7 @@ function ProfileEdit({ currentUser, onEdit }) {
 
                 <label>Skills</label>
                 <input
+                    autoComplete='off'
                     onChange={getInput}
                     className="common-input"
                     placeholder="Skill"

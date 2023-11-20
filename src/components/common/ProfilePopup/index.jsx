@@ -14,9 +14,11 @@ function ProfilePopup() {
 
   return (
     <div className='popup-card'>
-      <p className="name">{currentUser?.name}</p>
-      <p className="headline">{currentUser?.headline}</p>
-      <Button
+      {/* <p className="name">{currentUser?.name}</p>
+      <p className="headline">{currentUser?.headline}</p> */}
+      <div className='top-button'>
+        <Button
+        
         title="My Profile"
         onClick={() =>
           navigate("/profile", {
@@ -25,9 +27,14 @@ function ProfilePopup() {
             },
           })
         }
-      />
-
-      <Button title="Log out" onClick={onLogout} />
+        />
+        </div>
+      <div className="hr-text">
+      </div>
+      <div>
+        
+        <Button className='bottom-button' title="Log out" onClick={onLogout} /> 
+        </div>
     </div>
   )
 }

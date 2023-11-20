@@ -13,80 +13,86 @@ import { BsBriefcase } from "react-icons/bs";
 import ProfilePopup from "../ProfilePopup";
 import './index.scss'
 
-function Topbar({currentUser}) {
+function Topbar({ currentUser }) {
     const [popupVisible, setPopupVisible] = useState(false);
     const [isSearch, setIsSearch] = useState(false);
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchInput, setSearchInput] = useState("");
     let navigate = useNavigate();
-    
+
     const goToRoute = (route) => {
         navigate(route);
-      };
+    };
 
     const displayPopup = () => {
         setPopupVisible(!popupVisible);
-    };  
+    };
     return (
         <div className="topbar-main">
             {popupVisible ? (
                 <div className="popup-position">
                     <ProfilePopup />
                 </div>
-            ) : ( 
-             <></>
-            )} 
-
-            <img className="bebop-logo" src={BebopLogo} alt="BebopLogo" />
-
-            {isSearch 
-            ? (
-                <SearchUsers
-                    setIsSearch={setIsSearch}
-                    setSearchInput={setSearchInput}
-                />
             ) : (
-                <div className="react-icons-container"> 
-                <div className="react-icons">
-                    <AiOutlineSearch   //search icon
-                        size={30}
-                        className="react-icon"
-                        // onClick={() => setIsSearch(true)}
-                    />
-                    <AiOutlineHome    //home icon
-                        size={30}
-                        className="react-icon"
-                        onClick={() => goToRoute("/home")}
-                    />
-                    <AiOutlineUserSwitch  //user icon
-                        size={30}
-                        className="react-icon"
-                        onClick={() => goToRoute("/connections")}
-                    />
-                    <BsBriefcase 
-                        size={30} 
-                        className="react-icon"
-                    />  
-                    <AiOutlineMessage  //messaging icon
-                        size={30}
-                        className="react-icon" 
-                    />  
-                    <AiOutlineBell  //bell icon for notifications
-                        size={30} 
-                        className="react-icon"
-                   />
-                </div>
-                </div>
+                <></>
             )}
+            <div className="logo">
 
-            <img
-                className="user-logo"
-                
-                src={(currentUser?.imageLink)||user}
-                alt="user"
-                onClick={displayPopup}
-            />
+
+                <img className="bebop-logo" src={BebopLogo} alt="BebopLogo" />
+            </div>
+
+            {isSearch
+                ? (
+                    <SearchUsers
+                        setIsSearch={setIsSearch}
+                        setSearchInput={setSearchInput}
+                    />
+                ) : (
+                    <div className="react-icons-container">
+                        <div className="react-icons">
+                            <AiOutlineSearch   //search icon
+                                size={30}
+                                className="react-icon"
+                            // onClick={() => setIsSearch(true)}
+                            />
+                            <AiOutlineHome    //home icon
+                                size={30}
+                                className="react-icon"
+                                onClick={() => goToRoute("/home")}
+                            />
+                            <AiOutlineUserSwitch  //user icon
+                                size={30}
+                                className="react-icon"
+                                onClick={() => goToRoute("/connections")}
+                            />
+                            <BsBriefcase
+                                size={30}
+                                className="react-icon"
+                            />
+                            <AiOutlineMessage  //messaging icon
+                                size={30}
+                                className="react-icon"
+                            />
+                            <AiOutlineBell  //bell icon for notifications
+                                size={30}
+                                className="react-icon"
+                            />
+                        </div>
+                    </div>
+                )}
+
+            <div className="user">
+                <div className="user-profile">
+                    <img
+                        className="user-logo"
+                        src={(currentUser?.imageLink) || user}
+                        alt="user"
+                        onClick={displayPopup}
+                    />
+                </div>
+            </div>
 
 
             {searchInput.length === 0 ? (

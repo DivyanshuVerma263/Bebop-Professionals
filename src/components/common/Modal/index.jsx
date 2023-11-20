@@ -31,7 +31,7 @@ const ModalComponent = ({
           setCurrentPost({});
         }}
         footer={[
-          <Button
+          <Button className="btn"
             onClick={isEdit ? updateStatus : sendStatus}
             key="submit"
             type="primary"

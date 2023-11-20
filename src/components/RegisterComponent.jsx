@@ -43,7 +43,7 @@ const RegisterComponent = () => {
             <img src={BepopLogo} className='bepopLogo' />
             <div className="login-wrapper-inner">
                 <h1 className="heading">Sign Up</h1>
-                <p className="sub-heading">Work...Connect...Grow...</p>
+                {/* <p className="sub-heading">Work...Connect...Grow...</p> */}
                 <div className="auth-inputs">
                     <input    //enter user's name
                         onChange={(event) => setCredentials({ ...credentials, name: event.target.value })}
@@ -73,7 +73,7 @@ const RegisterComponent = () => {
                 </button>
             </div>
             
-            <hr className="hr-text" data-content="or" />
+            <p className='or'>or</p>
                 <div className="google-btn-container">   
                     
                     <GoogleButton className='google-btn'
