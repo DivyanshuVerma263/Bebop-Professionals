@@ -30,7 +30,8 @@ function PostStatus({ currentUser }) {
             timeStamp: getCurrentTimeStamp("LLL"),
             userEmail: currentUser.email,
             userName: currentUser.name,
-            postID: getUniqueID()
+            postID: getUniqueID(),
+            userID: currentUser.id,
         }
 
         //adding the object
