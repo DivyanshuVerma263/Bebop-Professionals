@@ -16,6 +16,8 @@ export default function PostsCard({ posts, id, getEditData }) {
     getCurrentUser(setCurrentUser);
     getAllUsers(setAllUsers);
   }, []);
+  
+  
 
   return (
     <>
@@ -60,9 +62,12 @@ export default function PostsCard({ posts, id, getEditData }) {
                   })
                 }
               >
-                {posts.userName}
+                {allUsers.filter((user)=> user.id === posts.userID)[0]?.name}
               </p>
             </div>
+            <p className="headline">
+              {allUsers.filter((user)=> user.id === posts.userID)[0]?.headline}  {/* headline for the user*/}
+              </p>
             <p className="timestamp">{posts.timeStamp}</p>
           </div>
 

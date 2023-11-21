@@ -62,7 +62,7 @@ function Topbar({ currentUser }) {
                                 className="react-icon"
                                 onClick={() => goToRoute("/home")}
                             />
-                            <AiOutlineUserSwitch  //user icon
+                            <AiOutlineUserSwitch  //connections icon
                                 size={30}
                                 className="react-icon"
                                 onClick={() => goToRoute("/connections")}
