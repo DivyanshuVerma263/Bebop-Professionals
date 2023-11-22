@@ -14,6 +14,7 @@ function PostStatus({ currentUser }) {
     const [allStatuses, setAllStatus] = useState([]);
     const [currentPost, setCurrentPost] = useState({});
     const [isEdit, setIsEdit] = useState(false);
+    
     const [postImage, setPostImage] = useState("");
     
     const sendStatus = async () => {
@@ -60,6 +61,7 @@ function PostStatus({ currentUser }) {
     useMemo(() => {
         getStatus(setAllStatus);
     }, []);
+
 
     return (
             <div className="post-status-main">

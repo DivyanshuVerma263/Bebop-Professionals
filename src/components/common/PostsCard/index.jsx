@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCurrentUser, getAllUsers, deletePost } from "../../../api/FirestoreAPI";
+import { getConnections } from "../../../api/FirestoreAPI";
 import LikeButton from "../LikeButton";
 import defaultUser from '../../../assets/user.png'
 import { BsPencil, BsTrash } from "react-icons/bs";
@@ -10,17 +11,22 @@ export default function PostsCard({ posts, id, getEditData }) {
   let navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
   const [allUsers, setAllUsers] = useState([]);
+  const [isConnected,setIsConnected]=useState(false);
 
   //function to get currentUser 
   useMemo(() => {
     getCurrentUser(setCurrentUser);
     getAllUsers(setAllUsers);
   }, []);
-  
-  
 
-  return (
-    <>
+  
+  useEffect(()=>{
+    getConnections(currentUser.id,posts.userID,setIsConnected);
+},[currentUser.id,posts.userID]);
+
+ 
+//show posts of only connected people
+return isConnected || currentUser.id === posts.userID ? (   
       <div className="posts-card" key={id}>
         <div className="post-image-wrapper">
           
@@ -79,6 +85,7 @@ export default function PostsCard({ posts, id, getEditData }) {
           postId={posts.id}
           currentUser={currentUser} />
       </div>
-    </>
-  )
+  ) :(
+  <></>
+  );
 };
