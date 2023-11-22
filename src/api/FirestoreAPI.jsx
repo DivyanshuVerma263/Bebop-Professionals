@@ -208,19 +208,20 @@ export const deletePost = (id) => {
   }
 };
 
+//adding connections
 export const addConnection = (userId, targetId) => {
   try {
     let connectionToAdd = doc(connectionRef, `${userId}_${targetId}`);
 
-    setDoc(connectionToAdd, { userId, targetId });
+    setDoc(connectionToAdd, { userId, targetId }); //creates a collection with the specific user id
 
-    toast.success("Connection Added!");
+    toast.success("Connection Added!"); //success message that connection has been added
   } catch (err) {
     console.log(err);
   }
 };
 
-export const getConnections = (userId, targetId, setIsConnected) => {
+export const getConnections = (userId, targetId, setIsConnected) => {  // checking if the connection is already present or not by passing the user id
   try {
     let connectionsQuery = query(
       connectionRef,
