@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BebopLogo from "../../../assets/BebopLogo.png";
 import user from "../../../assets/user.png";
+import SearchUsers from "../SearchUsers";
 import {
     AiOutlineHome,
     AiOutlineUserSwitch,
@@ -12,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { BsBriefcase } from "react-icons/bs";
 import ProfilePopup from "../ProfilePopup";
 import './index.scss'
+import { getAllUsers } from "../../../api/FirestoreAPI"; 
 
 function Topbar({ currentUser }) {
     const [popupVisible, setPopupVisible] = useState(false);
@@ -28,6 +30,43 @@ function Topbar({ currentUser }) {
     const displayPopup = () => {
         setPopupVisible(!popupVisible);
     };
+
+    const openUser = (user) => {
+        navigate("/profile", {
+            state: {
+                id: user.id,
+                email: user.email,
+            },
+        });
+    };
+
+    const handleSearch = () => {
+        if (searchInput !== "") {
+            let searched = users.filter((user) => {
+                return Object.values(user)
+                    .join("")
+                    .toLowerCase()
+                    .includes(searchInput.toLowerCase());
+            });
+
+            setFilteredUsers(searched);
+        } else {
+            setFilteredUsers(users);
+        }
+    };
+
+    useEffect(() => {
+        let debounced = setTimeout(() => {
+            handleSearch();
+        }, 1000);
+
+        return () => clearTimeout(debounced);
+    }, [searchInput]);
+
+    useEffect(() => {
+        getAllUsers(setUsers);
+    }, []);
+
     return (
         <div className="topbar-main">
             {popupVisible ? (
@@ -37,12 +76,14 @@ function Topbar({ currentUser }) {
             ) : (
                 <></>
             )}
+
             <div className="logo">
 
 
                 <img className="bebop-logo" src={BebopLogo} alt="BebopLogo" />
             </div>
 
+            <div className="react-icons-container">
             {isSearch
                 ? (
                     <SearchUsers
@@ -50,12 +91,11 @@ function Topbar({ currentUser }) {
                         setSearchInput={setSearchInput}
                     />
                 ) : (
-                    <div className="react-icons-container">
                         <div className="react-icons">
                             <AiOutlineSearch   //search icon
                                 size={30}
                                 className="react-icon"
-                            // onClick={() => setIsSearch(true)}
+                                onClick={() => setIsSearch(true)}
                             />
                             <AiOutlineHome    //home icon
                                 size={30}
@@ -80,8 +120,8 @@ function Topbar({ currentUser }) {
                                 className="react-icon"
                             />
                         </div>
-                    </div>
                 )}
+                </div>
 
             <div className="user">
                 <div className="user-profile">
@@ -100,7 +140,7 @@ function Topbar({ currentUser }) {
             ) : (
                 <div className="search-results">
                     {filteredUsers.length === 0 ? (
-                        <div className="search-inner">No Results Found..</div>
+                        <div className="search-inner">No results found...</div>
                     ) : (
                         filteredUsers.map((user) => (
                             <div className="search-inner" onClick={() => openUser(user)}>
