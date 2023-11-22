@@ -61,23 +61,26 @@ function ProfileCard({ currentUser, onEdit }) {
 
             <div className='profile-card'>
                 <div className='edit-btn'>
-                    <HiOutlinePencil className='edit-icon' onClick={onEdit} />
+                    {console.log(currentProfile)}
+                    { ((!currentProfile)||(currentUser.id === currentProfile.id)) ?
+                        <HiOutlinePencil className='edit-icon' onClick={onEdit} /> :
+                        <></>}
                 </div>
 
                 <div className="profile-info">
                     <div className="profile-image-container">
 
-                    <img
-                        className="profile-image"
-                        onClick={() => setModalOpen(true)}
-                        src={
-                            Object.values(currentProfile).length === 0
-                            ? currentUser.imageLink
-                            : currentProfile?.imageLink
-                        }
-                        alt="profile-image"
+                        <img
+                            className="profile-image"
+                            onClick={() => setModalOpen(true)}
+                            src={
+                                Object.values(currentProfile).length === 0
+                                    ? currentUser.imageLink
+                                    : currentProfile?.imageLink
+                            }
+                            alt="profile-image"
                         />
-                        </div>
+                    </div>
                     <div className='right-info'>
 
                         <h3 className='userName' >

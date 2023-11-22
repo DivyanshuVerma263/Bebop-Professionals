@@ -13,6 +13,13 @@ export default function PostsCard({ posts, id, getEditData }) {
   const [allUsers, setAllUsers] = useState([]);
   const [isConnected,setIsConnected]=useState(false);
 
+  const gotoprofile = () => {
+    // redirecting to profile with our current id and email
+    navigate("/profile", {
+      state: { id: posts?.id, email: posts.userEmail },
+    })
+  }
+
   //function to get currentUser 
   useMemo(() => {
     getCurrentUser(setCurrentUser);
@@ -55,18 +62,14 @@ return isConnected || currentUser.id === posts.userID ? (
               .filter((item) => item.id === posts.userID)
               .map((item) => item.imageLink)[0]) || defaultUser}
             alt="profile-image"
+            onClick={gotoprofile}
           />
           <div>
             <div>
 
               <p
                 className="name"
-                onClick={() =>
-                  // redirecting to profile with our current id and email
-                  navigate("/profile", {
-                    state: { id: posts?.id, email: posts.userEmail },
-                  })
-                }
+                onClick={gotoprofile}
               >
                 {allUsers.filter((user)=> user.id === posts.userID)[0]?.name}
               </p>
