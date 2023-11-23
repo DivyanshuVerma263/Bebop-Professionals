@@ -10,18 +10,20 @@
   flex-direction: column;
   // padding: 20px;
   .name {
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.9);
+    font-size: 14px;
+    color: white;
     font-weight: 600;
     text-align: left;
-    margin-top: -7px;
+    margin-top: 7px;
+    margin-left: 10px;
   }
 
   .headline {
     font-size: 14px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.9);
+    color: white;
     margin-top: -15px;
+    margin-left: 10px;
   }
   .popup-option {
     cursor: pointer;
@@ -36,4 +38,7 @@
 // .top-button{
 //   border-top-left-radius: 5px !important;
 //   border-top-right-radius: 5px !important;
+// }
+// .top-button,.bottom-button{
+//   background-color: transparent;
 // }

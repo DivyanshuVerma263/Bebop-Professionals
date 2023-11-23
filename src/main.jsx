@@ -4,6 +4,7 @@ import {RouterProvider} from "react-router-dom";
 import { router } from './Routes';
 import './index.scss'
 import { ToastContainer } from 'react-toastify';
+import "react-quill/dist/quill.snow.css";
 import 'react-toastify/dist/ReactToastify.css';
   
 
