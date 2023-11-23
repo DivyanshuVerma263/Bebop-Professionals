@@ -61,10 +61,10 @@ function ProfileCard({ currentUser, onEdit }) {
 
             <div className='profile-card'>
                 <div className='edit-btn'>
-                    {console.log(currentProfile)}
-                    { ((!currentProfile)||(currentUser.id === currentProfile.id)) ?
-                        <HiOutlinePencil className='edit-icon' onClick={onEdit} /> :
-                        <></>}
+                    {/* {console.log(currentProfile)} */}
+                    {/* { ((!currentProfile)||(currentUser.id === currentProfile.id)) ? */}
+                        <HiOutlinePencil className='edit-icon' onClick={onEdit} /> 
+                        {/* <></>} */}
                 </div>
 
                 <div className="profile-info">
