@@ -14,8 +14,8 @@ function ProfilePopup() {
 
   return (
     <div className='popup-card'>
-      <p className="name">{currentUser?.name}</p>
-      <p className="headline">{currentUser?.headline}</p>
+      {/* <p className="name">{currentUser?.name}</p> */}
+      {/* <p className="headline">{currentUser?.headline}</p> */}
       <div className='top-button'>
         <Button
         

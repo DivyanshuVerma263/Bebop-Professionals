@@ -1,17 +1,14 @@
 .profile-card {
     width: 85%;
     height: auto;
-    // background-color: whitesmoke;
     background-color: #3D4B5A;
     color: #E9E9E9;
-    // color: white;
     margin: 50px auto 0 auto;
     border-radius: 5px;
     padding: 20px;
     position: relative;
     .profile-info {
       display: flex;
-      // justify-content:space-evenly;
       margin: 0 auto 0 auto;
       .profile-image {
         width: 400px;
@@ -19,24 +16,20 @@
         object-fit: contain;
         margin-right: 30px;
         border-radius: 15px;
-        // border-radius: 50%;
         border: 2px solid #cacaca;
         padding: 5px;
-        cursor: pointer;
-        
+        cursor: pointer;        
       }
       .right-info {
         margin-top: 25px;
         margin-right: 20px;
         .college,
         .company {
-          // font-family: system-ui;
           color: #E9E9E9;
           font-size: 16px;
           font-weight: 600;
           line-height: 30px;
-        }
-  
+        }  
         .company {
           margin-top: -15px;
         }

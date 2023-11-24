@@ -14,6 +14,7 @@ import { BsBriefcase } from "react-icons/bs";
 import ProfilePopup from "../ProfilePopup";
 import './index.scss'
 import { getAllUsers } from "../../../api/FirestoreAPI"; 
+import defaultUser from '../../../assets/user.png'
 
 function Topbar({ currentUser }) {
     const [popupVisible, setPopupVisible] = useState(false);
@@ -78,8 +79,6 @@ function Topbar({ currentUser }) {
             )}
 
             <div className="logo">
-
-
                 <img className="bebop-logo" src={BebopLogo} alt="BebopLogo" />
             </div>
 
@@ -144,7 +143,7 @@ function Topbar({ currentUser }) {
                     ) : (
                         filteredUsers.map((user) => (
                             <div className="search-inner" onClick={() => openUser(user)}>
-                                <img src={user.imageLink} />
+                                <img src={user.imageLink||defaultUser} />
                                 <p className="name">{user.name}</p>
                             </div>
                         ))

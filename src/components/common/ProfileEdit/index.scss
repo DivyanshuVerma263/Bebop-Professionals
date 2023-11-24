@@ -1,6 +1,6 @@
-$linkedinBlue1: #0072b1;
-$linkedinBlue2: #0073b1;
-$linkedinBlue3: #004c75;
+$bebopBlue1: #0072b1;
+$bebopBlue2: #0073b1;
+$bebopBlue3: #004c75;
 
 .profile-edit-inputs {
   display: grid;
@@ -27,7 +27,7 @@ $linkedinBlue3: #004c75;
   width: 300px;
   height: 50px;
   cursor: pointer;
-  background-color: $linkedinBlue2;
+  background-color: $bebopBlue2;
   border-radius: 30px;
   outline: none;
   border: none;
@@ -36,6 +36,9 @@ $linkedinBlue3: #004c75;
   color: #ffffff;
   font-size: 18px;
   margin-top: 20px;
+}
+.save-btn:hover{
+  background-color: black;
 }
 
 .close-icon {

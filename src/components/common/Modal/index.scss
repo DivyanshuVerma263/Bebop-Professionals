@@ -1,7 +1,6 @@
 .modal-input {
   border: none !important;
-  // background-color: white;
-  background-color: #1F2227;
+  background-color: #1f2227;
   outline: none;
   color: white;
   font-size: 16px;
@@ -10,11 +9,12 @@
   resize: none;
 }
 
+.q1-editor::placeholder{
+  color: black;
+}
 .ql-container.ql-snow,
 .ql-toolbar.ql-snow {
   border: none !important;
-  // display:flex;
-  // flex-direction: row;
 }
 
 .ql-container.ql-snow {
@@ -43,11 +43,12 @@
 
 :where(.css-dev-only-do-not-override-1adbn6x).ant-modal .ant-modal-content {
   position: relative;
-  background-color: #1F2227;
+  background-color: #1f2227;
   background-clip: padding-box;
   border: 0;
   border-radius: 10px;
-  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   pointer-events: auto;
   padding: 20px 24px;
 }
@@ -55,7 +56,7 @@
 :where(.css-dev-only-do-not-override-1adbn6x).ant-modal .ant-modal-title {
   margin: 0;
   color: rgba(0, 0, 0, 0.88);
-  background-color: #1F2227;
+  background-color: #1f2227;
   color: white;
   font-weight: 600;
   font-size: 16px;
@@ -80,39 +81,18 @@
   border: 0;
   outline: 0;
   cursor: pointer;
-  transition: color 0.2s,background-color 0.2s;
-  :hover{
+  transition: color 0.2s, background-color 0.2s;
+  :hover {
     background-color: rgb(197, 197, 197);
-  // color: black;
-  // padding: 10px;
-  border-radius: 10%;;
+    border-radius: 10%;
   }
 }
 
-.quill > .ql-container > .ql-editor.ql-blank::before{
+.quill > .ql-container > .ql-editor.ql-blank::before {
   font-size: 16px;
-  color: whitesmoke;
+  color: rgb(245,245,245,0.35);
 }
 
-// .ql-snow .ql-picker.ql-size .ql-picker-label {
-//   font-size: 12px;
-//   color: #000;
-// }
-
-// .ql-snow .ql-picker.ql-size .ql-picker-item {
-//   padding: 5px 10px;
-//   cursor: pointer;
-// }
-
-// .ql-snow .ql-picker.ql-size .ql-picker-item:hover {
-//   background-color: #ccc;
-// }
-
-// .ql-snow .ql-picker.ql-size .ql-picker-item.ql-active {
-//   background-color: #000;
-//   color: #fff;
-// }
-
-.btn{
+.btn {
   color: white !important;
 }

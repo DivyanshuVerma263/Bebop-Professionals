@@ -6,7 +6,8 @@ import ProfileLayout from "../layouts/ProfileLayout";
 import ConnectionLayout from "../layouts/ConnectionLayout";
 
 
-export const router = createBrowserRouter([   //routes
+//routes
+export const router = createBrowserRouter([   
     {
       path: "/",
       element: <Login />,

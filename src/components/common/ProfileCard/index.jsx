@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { getSingleStatus, getSingleUser, editProfile, getStatus } from '../../../api/FirestoreAPI';
 import { HiOutlinePencil } from 'react-icons/hi'
 import { uploadImage as uploadImageAPI } from '../../../api/ImageUpload';
-
+import defaultUser from '../../../assets/user.png'
 import './index.scss'
 
 
@@ -63,8 +63,8 @@ function ProfileCard({ currentUser, onEdit }) {
                 <div className='edit-btn'>
                     {/* {console.log(currentProfile)} */}
                     {/* { ((!currentProfile)||(currentUser.id === currentProfile.id)) ? */}
-                        <HiOutlinePencil className='edit-icon' onClick={onEdit} /> 
-                        {/* <></>} */}
+                    <HiOutlinePencil className='edit-icon' onClick={onEdit} />
+                    {/* <></>} */}
                 </div>
 
                 <div className="profile-info">
@@ -73,11 +73,9 @@ function ProfileCard({ currentUser, onEdit }) {
                         <img
                             className="profile-image"
                             onClick={() => setModalOpen(true)}
-                            src={
-                                Object.values(currentProfile).length === 0
-                                    ? currentUser.imageLink
-                                    : currentProfile?.imageLink
-                            }
+                            src={(Object.values(currentProfile).length === 0
+                                ? currentUser.imageLink
+                                : currentProfile?.imageLink) || defaultUser}
                             alt="profile-image"
                         />
                     </div>
@@ -92,7 +90,7 @@ function ProfileCard({ currentUser, onEdit }) {
                         <p className='heading'>
                             {Object.values(currentProfile).length === 0
                                 ? currentUser.headline
-                                : currentProfile?.headline}
+                                : currentProfile.headline}
                         </p>
 
                         <p className='location'>
@@ -107,6 +105,7 @@ function ProfileCard({ currentUser, onEdit }) {
                                 ? `${currentUser.website}`
                                 : currentProfile?.website}
                         >
+                            {/* <span className='skill-label'>Website</span>:&nbsp; */}
                             {Object.values(currentProfile).length === 0
                                 ? `${currentUser.website}`
                                 : currentProfile?.website}

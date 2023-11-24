@@ -8,23 +8,22 @@ body {
 }
 
 .login-wrapper {
-  background-color: #0D1B26 !important;
+  background-color: #0d1b26 !important;
   height: 100vh;
 
-  .bepopLogo{
+  .bepopLogo {
     height: 100px;
     width: auto;
   }
   .login-wrapper-inner {
     display: flex;
     flex-direction: column;
-    justify-content: center;  //distributes the space between and around the items on the horizontal axis
+    justify-content: center;
     align-items: center;
   }
   .heading {
     font-family: system-ui;
     font-weight: 500;
-    // color: rgba(0, 0, 0, 0.9);
     color: white;
   }
 
@@ -34,7 +33,7 @@ body {
   }
 }
 
-.login-btn {   
+.login-btn {
   width: 300px;
   height: 50px;
   cursor: pointer;
@@ -53,16 +52,12 @@ body {
   background-color: $bebopBlue3;
 }
 
-// .login-btn:focus {
-//   box-shadow: 0px 0px 10px lightblue;
-// }
-
 .auth-inputs {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 300px;
-  .common-input{
+  .common-input {
     height: 30px;
     padding: 10px;
     background-color: white;
@@ -70,7 +65,7 @@ body {
     border: 1px solid black;
   }
 }
-.input:focus-within{
+.input:focus-within {
   border: 1px solid blue;
   box-shadow: 0px 0px 10px lightblue;
 }
@@ -78,7 +73,6 @@ body {
 .bepopLogo {
   width: 80px;
 }
-
 
 .google-btn-container {
   display: flex;
@@ -90,16 +84,15 @@ body {
     width: 300px !important;
     background-color: black !important;
   }
-  
+
   .google-btn:hover {
-    // border: 1px solid black !important;
     box-shadow: 0px 0px 10px lightblue !important;
   }
-  
+
   .go-to-signup {
     font-size: 18px;
   }
-  
+
   .join-now {
     color: $bebopBlue1;
     font-family: system-ui;
@@ -111,15 +104,15 @@ body {
   }
 }
 
-.input{
+.input {
   border: none;
   border-radius: 7px !important;
 }
 
-.input::placeholder{
+.input::placeholder {
   color: #e9e9e9;
 }
 
-.or{
+.or {
   text-align: center;
 }

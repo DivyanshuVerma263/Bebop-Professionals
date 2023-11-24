@@ -1,37 +1,35 @@
-.connections-main {
-    // min-width: 100vh;
-    // overflow-y: auto;
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns:repeat(4,1fr);
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    text-align: center;
-    // margin-right: auto;
-    // margin-left: auto;
-    // margin-right: auto;
-    // border: 1px solid #bbbbbb;
-    // background-color: white;
-    border-radius: 10px;
-    .grid-child-container{
-      display: flex;
-      justify-content: space-evenly;
-      
+$bebopBlue1: #0072b1;
+$bebopBlue2: #0073b1;
+$bebopBlue3: #004c75;
 
-      .grid-child {
-        border: 1px solid #bbbbbb;
-        width: 250px;
-        height: 330px;
-        margin: 10px;
-        padding: 10px;
-        display: flex;
+.connections-main {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  .grid-child-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+
+    .grid-child {
+      border: 1px solid #00a6e0;
+      width: 250px;
+      height: 280px;
+      margin: 10px;
+      padding: 10px;
+      display: flex;
       align-items: center;
       flex-direction: column;
       border-radius: 10px;
       position: relative;
-      
+
       img {
         cursor: pointer;
         width: 150px;
@@ -40,30 +38,30 @@
         object-fit: cover;
         margin-top: 20px;
       }
-  
+
       .name {
         cursor: pointer;
         font-family: system-ui;
         font-size: 16px;
         font-weight: 600;
       }
-      
+
       .headline {
         margin-top: -15px;
         font-family: system-ui;
         font-size: 15px;
         font-weight: 400;
       }
-      
+
       button {
         width: 90%;
         height: 40px;
         position: absolute;
-  
+        margin-bottom: 10px;
         bottom: 10px;
         cursor: pointer;
-        background-color: white;
-        color: #004284;
+        background-color: $bebopBlue2;
+        color: white;
         border: 1px solid #004284;
         font-size: 16px;
         font-family: system-ui;
@@ -74,11 +72,11 @@
         align-items: center;
         gap: 10px;
       }
-      
+
       button:hover {
         border: 2px solid #004284;
-        background-color: #bbdefb;
+        background-color: black;
       }
     }
   }
-  }
+}

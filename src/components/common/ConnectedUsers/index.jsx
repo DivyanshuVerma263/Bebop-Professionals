@@ -40,7 +40,7 @@ function ConnectedUsers({ user, getCurrentUser, currentUser }) {
         <p className='name' onClick={() => openUser(user)} >
           {user.name}
         </p>
-        <p className='headline'>{user.headline}</p>
+        {/* <p className='headline'>{user.headline}</p> */}
         <button onClick={() => getCurrentUser(user.id)}>
           <AiOutlineUsergroupAdd size={20} />
           Connect

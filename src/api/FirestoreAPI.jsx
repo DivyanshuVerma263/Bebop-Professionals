@@ -9,8 +9,6 @@ import {
   where,
   setDoc,
   deleteDoc,
-  orderBy,
-  serverTimestamp,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 
@@ -30,8 +28,8 @@ export const postStatus = (object) => {
     });
 };
 
+
 export const getStatus = (setAllStatus) => {
-//   const q = query(postsRef, orderBy("timeStamp"));
   onSnapshot(postsRef, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
@@ -40,6 +38,7 @@ export const getStatus = (setAllStatus) => {
     );
   });
 };
+
 
 //exporting all the users 
 export const getAllUsers = (setAllUsers) => {
@@ -51,6 +50,7 @@ export const getAllUsers = (setAllUsers) => {
     );
   });
 };
+
 
 export const getSingleStatus = (setAllStatus, id) => {
   // query if the userID for the post is equal to the id of the current post
@@ -64,6 +64,7 @@ export const getSingleStatus = (setAllStatus, id) => {
     });
   };
   
+
   export const getSingleUser = (setCurrentUser, email) => {
   // query if the email for the user is equal to the email of the current user
   const singleUserQuery = query(userRef, where("email", "==", email));
@@ -76,6 +77,7 @@ export const getSingleStatus = (setAllStatus, id) => {
   });
 };
 
+
 export const postUserData = (object) => {
   addDoc(userRef, object)
     .then(() => {})
@@ -83,6 +85,7 @@ export const postUserData = (object) => {
       console.log(err);
     });
 };
+
 
 export const getCurrentUser = (setCurrentUser) => {  
   onSnapshot(userRef, (response) => {
@@ -102,7 +105,6 @@ export const getCurrentUser = (setCurrentUser) => {
 // this edits the profile with the data passed
 export const editProfile = (userID, payload) => {
   let userToEdit = doc(userRef, userID);
-
   // payload conatins the data to be edited
   updateDoc(userToEdit, payload)
     .then(() => {
@@ -151,6 +153,7 @@ export const editProfile = (userID, payload) => {
   }
 };
 
+
 //function to post comment 
 export const postComment = (postId, comment, timeStamp, name) => {
   try {
@@ -164,6 +167,7 @@ export const postComment = (postId, comment, timeStamp, name) => {
     console.log(err);
   }
 };
+
 
 //function to get all the comments to display
 export const getComments = (postId, setComments) => {
@@ -186,6 +190,7 @@ export const getComments = (postId, setComments) => {
   }
 };
 
+
 // function to update the posts with the given data
 export const updatePost = (id, status, postImage) => {
   let docToUpdate = doc(postsRef, id);
@@ -197,6 +202,7 @@ export const updatePost = (id, status, postImage) => {
   }
 };
 
+
 // function to delete the posts 
 export const deletePost = (id) => {
   let docToDelete = doc(postsRef, id);
@@ -207,6 +213,7 @@ export const deletePost = (id) => {
     console.log(err);
   }
 };
+
 
 //adding connections
 export const addConnection = (userId, targetId) => {
@@ -220,6 +227,7 @@ export const addConnection = (userId, targetId) => {
     console.log(err);
   }
 };
+
 
 export const getConnections = (userId, targetId, setIsConnected) => {  // checking if the connection is already present or not by passing the user id
   try {

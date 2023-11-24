@@ -55,10 +55,10 @@ const ModalComponent = ({
 
           <div className="posts-body">
           <ReactQuill
-            className="modal-input"
+            className="modal-input modal_input"
             theme="snow"
             value={status}
-             placeholder="Share Something "
+             placeholder="Share Something"
             onChange={setStatus}
           />
           {progress === 0 || progress === 100 ? (
