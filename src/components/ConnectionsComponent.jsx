@@ -12,18 +12,18 @@ function ConnectionsComponent({currentUser}) {
     }
   
     useEffect(()=>{
-      getAllUsers(setUsers)
+      getAllUsers(setUsers);
     },[]);
-
     
 
-    return users.length > 1 ? (
+    return users.length > 0 ? (
         <div className="connections-main">
-          {users.map((user) => {
+          {users.map((user,index) => {
             return user.id === currentUser.id ? (
               <></>
             ) : (
               <ConnectedUsers
+                key={index}
                 currentUser={currentUser}
                 user={user}
                 getCurrentUser={getCurrentUser}

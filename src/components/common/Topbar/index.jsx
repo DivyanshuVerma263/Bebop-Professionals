@@ -141,8 +141,8 @@ function Topbar({ currentUser }) {
                     {filteredUsers.length === 0 ? (
                         <div className="search-inner">No results found...</div>
                     ) : (
-                        filteredUsers.map((user) => (
-                            <div className="search-inner" onClick={() => openUser(user)}>
+                        filteredUsers.map((user,index) => (
+                            <div key={index} className="search-inner" onClick={() => openUser(user)}>
                                 <img src={user.imageLink||defaultUser} />
                                 <p className="name">{user.name}</p>
                             </div>

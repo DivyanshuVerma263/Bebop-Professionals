@@ -27,14 +27,14 @@ export default function PostsCard({ posts, id, getEditData }) {
     getAllUsers(setAllUsers);
   }, []);
 
-
+  
   useEffect(() => {
     getConnections(currentUser.id, posts.userID, setIsConnected);
-  }, [currentUser.id, posts.userID]);
+  }, [currentUser?.id, posts.userID]);
 
 
   //show posts of only connected people
-  return isConnected || currentUser.id === posts.userID ? (
+  return isConnected || currentUser?.id === posts.userID ? (
     <div className="posts-card" key={id}>
       <div className="post-image-wrapper">
 

@@ -101,12 +101,9 @@ function PostStatus({ currentUser }) {
             />
 
             <div>
-                {allStatuses.map((posts) => {
-                    console.log(posts);
+                {allStatuses.map((posts, index) => {
                     return (
-                        <>
-                            <PostsCard posts={posts} getEditData={getEditData} />
-                        </>
+                        <PostsCard key={index} posts={posts} getEditData={getEditData} />
                     )
                 })}
             </div>

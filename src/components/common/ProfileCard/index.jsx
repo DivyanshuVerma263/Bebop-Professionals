@@ -149,7 +149,7 @@ function ProfileCard({ currentUser, onEdit }) {
                     return item.userEmail === localStorage.getItem("userEmail")
                 })
                     .map((posts) => {
-                        console.log(posts);
+                        // console.log(posts);
                         return (
                             <>
                                 <PostsCard posts={posts} />
